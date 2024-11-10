@@ -1,4 +1,5 @@
-# CC: defines he C compiler to use
+# CC: defines the C compiler to use
+# OPT: defines optimization level
 # CFLAGS: defines compiler flags
 # LFLAGS: defines library paths in addition to /usr/lib
 # LIBS: defines libraries to use (eg: -lm for math library..Add multiple ones like so: -lm -lm2 -lm2)
@@ -10,7 +11,8 @@
 
 
 CC		= gcc
-CFLAGS		= -std=c11 -Wall -Wextra -Werror -fmax-errors=10
+OPT		?= -O2
+CFLAGS		= -std=c11 -Wall -Wextra -Werror -fmax-errors=10 $(OPT)
 LFLAGS		= -L.
 LIBS		?= 
 SOURCES		:= $(wildcard *.c)
