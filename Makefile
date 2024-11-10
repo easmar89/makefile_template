@@ -11,7 +11,7 @@
 
 
 CC		= gcc
-OPT		?= -O2
+OPT		?= -O3
 CFLAGS		= -std=c11 -Wall -Wextra -Werror -fmax-errors=10 $(OPT)
 LFLAGS		= -L.
 LIBS		?= 
@@ -39,5 +39,10 @@ help:
 	@echo "Available targets:"
 	@echo "  all     - Build the executable"
 	@echo "  run     - Execute the program (Specify args in the Makefile if they are needed)"
+	@echo "  debug   - Compiles with -g flag and -O2 instead of -O3"
 	@echo "  clean   - Remove build artifacts"
 	@echo "  help    - Display this help message"
+
+debug: OPT=-O2
+debug: CFLAGS+=-g
+debug: all
